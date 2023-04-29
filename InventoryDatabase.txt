@@ -1,0 +1,17 @@
+ISBN,Title,author,Publisher,Date added,Quantity-on-hand,Wholesale Cost,Retail price
+
+9780525536963,The Vanishing Half,Brit Bennett,Riverhead Books,02/01/2022,25,12.24,18.00
+9781571313560,Braiding Sweetgrass,Robin Wall Kimmerer,Milkweed Editions,08/11/2015,25,13.00,20.00
+9780593321201,Tomorrow and Tomorrow and Tomorrow,Gabrielle Zevin,Knopf Publishing Group,07/05/2022,25,17.08,28.00
+9781982185329,The Shamshine Blind,Paz Pardo,Atria Books,02/14/2023,25,18.20,28.00
+9780063238510,The Time Has Come,Will Leitch,Harper,05/16/2023,25,20.40,30.00
+9781538732182,Parable of the Sower,Octavia E. Butler,Grand Central Publishing,04/30/2019,25,10.19,16.99
+9780593492307,The Climate Book,Greta Thunberg,Penguin Press,02/14/2023,25,18.30,30.00
+9780358627982,Black Buck,Mateo Askaripour,Mariner Books,01/18/2022,25,11.55,16.99
+9780593593806,Spare,Prince Harry the Duke of Sussex,Random House,01/10/2023,25,21.96,36.00
+9780525559474,The Midnight Library,Matt Haig,Viking,09/29/2020,25,15.86,26.00
+9781250282521,Maame,Jessica George,St. Martin's Press,01/31/2023,25,19.03,27.99
+9780593490143,I Have Some Questions for You,Rebecca Makkai,Viking,02/21/2023,25,17.92,28.00
+9781644452080,Dr. No,Percival Everett,Graywolf Press,11/01/2022,25,10.88,16.00
+9781250236210,A Psalm for the Wild-Built,Becky Chanmbers,Tordotcom,07/13/2021,25,14.27,20.99
+9780063250833,Yellowface,R. F. Kuang,William Morrow & Company,05/16/2023,25,20.40,30.00
