@@ -10,3 +10,6 @@ in the bookstore. In general, the software is to perform the following tasks:
 * When a book is purchased, subtract it from the inventory file
 * Add, change, delete, and look up books in the inventory file
 * Display various sales reports
+
+
+Inventory Database may need to be moved later
