@@ -13,3 +13,4 @@ in the bookstore. In general, the software is to perform the following tasks:
 
 
 Inventory Database may need to be moved later
+Current cpp files also all have a main method, all of one of which are commented out so I can actually run the thing. Needs to be fixed later.
