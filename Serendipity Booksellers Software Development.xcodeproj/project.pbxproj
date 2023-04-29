@@ -26,7 +26,6 @@
 		4F6BCE8429FD948700FDFC68 /* Serendipity Booksellers Software Development */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Serendipity Booksellers Software Development"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6BCE8729FD948700FDFC68 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4F6BCE8F29FD9B5200FDFC68 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4F6BCE9029FD9B7100FDFC68 /* InventoryDatabase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InventoryDatabase.txt; path = "../../../../Desktop/226 projects/project 1/InventoryDatabase.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +59,6 @@
 		4F6BCE8629FD948700FDFC68 /* Serendipity Booksellers Software Development */ = {
 			isa = PBXGroup;
 			children = (
-				4F6BCE9029FD9B7100FDFC68 /* InventoryDatabase.txt */,
 				4F6BCE8729FD948700FDFC68 /* main.cpp */,
 			);
 			path = "Serendipity Booksellers Software Development";
