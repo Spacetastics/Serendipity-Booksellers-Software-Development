@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 //cmath, iomanip, use setw function or the left justified equivalent to line up columns in console
 //cout << left << setw(spaces) << output
 //fixed, setprecision()
@@ -17,11 +18,6 @@ using namespace std;
 
 //int main() {
 //
-//    for (int num = 0; num < 5; num++) {
-//        cout << "bruh";
-//        cout << "bruh 2";
-//        cout << "gruh";
-//    }
-//
-//    return 0;
+//    cout << setw(5) << "test" << setw(10) << "test2";
+//    
 //}
