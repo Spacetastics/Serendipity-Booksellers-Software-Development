@@ -25,7 +25,40 @@ using namespace std;
 //
 //    //makes an int variable to store the user's choice in, and gets it with cin
 //    int choice;
-//    //no input validaton at the moment
 //    cin >> choice;
+//
+//    //basic input validation, does not check whether what was entered is an integer
+//    if (choice < 1 || choice > 7)
+//        cout << endl << "Please enter a number in the range 1-7." << endl;
+//    else {
+//        cout << endl << "You selected item ";
+//        switch (choice) {
+//            case 1:
+//                cout << "1." << endl;
+//                break;
+//            case 2:
+//                cout << "2." << endl;
+//                break;
+//            case 3:
+//                cout << "3." << endl;
+//                break;
+//            case 4:
+//                cout << "4." << endl;
+//                break;
+//            case 5:
+//                cout << "5." << endl;
+//                break;
+//            case 6:
+//                cout << "6." << endl;
+//                break;
+//            case 7:
+//                cout << "7." << endl;
+//                break;
+//            //this should never be reached
+//            default:
+//                cout << "ERROR" << endl;
+//                break;
+//        }
+//    }
 //
 //}
