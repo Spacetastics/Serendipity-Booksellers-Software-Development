@@ -10,11 +10,15 @@
 
 using namespace std;
 
-int main() {
-    
-    cout << right << setw(26) << "Serendipity Booksellers" << endl;
-    cout << right << setw(18) << "Reports" << endl << endl;
-    
-    cout << "1. Inventory Listing" << endl << "2. Inventory Wholesale Value" << endl << "3. Inventory Retail Value" << endl << "4. Listing by Quantity" << endl << "5. Listing by Cost" << endl << "6. Listing by Age" << endl << "7. Return to Main Menu" << endl << endl << "Enter Your Choice: " << endl;
-    
-}
+//int main() {
+//    
+//    cout << right << setw(26) << "Serendipity Booksellers" << endl;
+//    cout << right << setw(18) << "Reports" << endl << endl;
+//    
+//    cout << "1. Inventory Listing" << endl << "2. Inventory Wholesale Value" << endl << "3. Inventory Retail Value" << endl << "4. Listing by Quantity" << endl << "5. Listing by Cost" << endl << "6. Listing by Age" << endl << "7. Return to Main Menu" << endl << endl << "Enter Your Choice: ";
+//    
+//    int choice;
+//    //not checking for proper input
+//    cin >> choice;
+//    
+//}
