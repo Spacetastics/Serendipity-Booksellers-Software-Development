@@ -78,6 +78,8 @@ xcuserdata/
 
 ### Xcode Patch ###
 *.xcodeproj/*
+
+# the below lines were included by default, but they were causing xcodeproj to be committed so I commented them out
 # !*.xcodeproj/project.pbxproj
 # !*.xcodeproj/xcshareddata/
 # !*.xcodeproj/project.xcworkspace/
