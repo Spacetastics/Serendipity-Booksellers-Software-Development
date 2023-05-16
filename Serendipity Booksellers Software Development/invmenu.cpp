@@ -20,25 +20,25 @@ using namespace std;
 //    int choice;
 //    //continually asks the user to enter a choice until they enter 5 (return to main menu)
 //    do {
-//        
+//
 //        //print header
 //        cout << right << setw(26) << "Serendipity Booksellers" << endl;
 //        cout << right << setw(23.5) << "Inventory Database" << endl << endl;
 //
 //        //print five options
 //        cout << "1. Look Up a Book" << endl << "2. Add a Book" << endl << "3. Edit a Book's Record" << endl << "4. Delete a Book" << endl << "5. Return to the Main Menu" << endl << endl;
-//        
+//
 //        //asks user for input and stores console input in choice
 //        cout << "Enter Your Choice: ";
 //        cin >> choice;
-//        
+//
 //        //basic input validation, does not check whether what was entered is an integer
 //        while (choice < 1 || choice > 5) {
 //            cout << endl << "Please enter a number in the range 1-5: ";
 //            cin >> choice;
 //            cin.ignore(); //this stops the console output from being flooded by the above output due to my second endl insertion in the following switch statement
 //        }
-//        
+//
 //        cout << endl << "You selected item ";
 //        switch (choice) {
 //            case 1:
@@ -61,7 +61,8 @@ using namespace std;
 //                cout << "ERROR" << endl;
 //                break;
 //        }
-//        
+//
 //    } while (choice != 5);
-//    
+//
+//    return 0;
 //}
