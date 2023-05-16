@@ -16,49 +16,59 @@ using namespace std;
 
 //int main() {
 //
-//    //print header
-//    cout << right << setw(26) << "Serendipity Booksellers" << endl;
-//    cout << right << setw(18) << "Reports" << endl << endl;
-//
-//    //print seven options and ask user to input choice
-//    cout << "1. Inventory Listing" << endl << "2. Inventory Wholesale Value" << endl << "3. Inventory Retail Value" << endl << "4. Listing by Quantity" << endl << "5. Listing by Cost" << endl << "6. Listing by Age" << endl << "7. Return to Main Menu" << endl << endl << "Enter Your Choice: ";
-//
-//    //makes an int variable to store the user's choice in, and gets it with cin
+//    //makes an int variable to store the user's choice
 //    int choice;
-//    cin >> choice;
+//    //continually asks the user to enter a choice until they enter 7 (main menu)
+//    do {
 //
-//    //basic input validation, does not check whether what was entered is an integer
-//    if (choice < 1 || choice > 7)
-//        cout << endl << "Please enter a number in the range 1-7." << endl;
-//    else {
+//        //print header
+//        cout << right << setw(26) << "Serendipity Booksellers" << endl;
+//        cout << right << setw(18) << "Reports" << endl << endl;
+//
+//        //print seven options and ask user to input choice
+//        cout << "1. Inventory Listing" << endl << "2. Inventory Wholesale Value" << endl << "3. Inventory Retail Value" << endl << "4. Listing by Quantity" << endl << "5. Listing by Cost" << endl << "6. Listing by Age" << endl << "7. Return to Main Menu" << endl << endl;
+//
+//        //asks user for input and stores console input in choice
+//        cout << "Enter Your Choice: ";
+//        cin >> choice;
+//
+//        //basic input validation, does not check whether what was entered is an integer
+//        while (choice < 1 || choice > 7) {
+//            cout << endl << "Please enter a number in the range 1-7: ";
+//            cin >> choice;
+//            cin.ignore(); //this stops the console output from being flooded by the above output due to my second endl insertion in the following switch statement
+//        }
+//
 //        cout << endl << "You selected item ";
 //        switch (choice) {
 //            case 1:
-//                cout << "1." << endl;
+//                cout << "1." << endl << endl;
 //                break;
 //            case 2:
-//                cout << "2." << endl;
+//                cout << "2." << endl << endl;
 //                break;
 //            case 3:
-//                cout << "3." << endl;
+//                cout << "3." << endl << endl;
 //                break;
 //            case 4:
-//                cout << "4." << endl;
+//                cout << "4." << endl << endl;
 //                break;
 //            case 5:
-//                cout << "5." << endl;
+//                cout << "5." << endl << endl;
 //                break;
 //            case 6:
-//                cout << "6." << endl;
+//                cout << "6." << endl << endl;
 //                break;
 //            case 7:
-//                cout << "7." << endl;
+//                cout << "7." << endl << endl;
 //                break;
 //            //this should never be reached
 //            default:
 //                cout << "ERROR" << endl;
 //                break;
 //        }
-//    }
 //
+//    } while (choice != 7);
+//
+//    return 0;
 //}
