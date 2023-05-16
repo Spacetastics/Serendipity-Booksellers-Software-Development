@@ -1,0 +1,2 @@
+temporary file to test gitignore
+it should be added, but the updated directory in .xcodeproj should not show up in the commit
