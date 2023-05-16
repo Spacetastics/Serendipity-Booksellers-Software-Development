@@ -10,6 +10,7 @@
 //standard library headers
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 //project headers
 #include "cashier.h"
