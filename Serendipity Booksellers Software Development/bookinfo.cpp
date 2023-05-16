@@ -35,4 +35,8 @@ int bookInfo(string isbn, string title, string author, string publisher, string 
     << "8. Retail Price: " << retail << endl;
 
     return 0;
+    
+    //NOTES:
+    
+    //might want to change variables in function to const reference for efficiency reasons (more efficient than copying/passing by value)
 }
