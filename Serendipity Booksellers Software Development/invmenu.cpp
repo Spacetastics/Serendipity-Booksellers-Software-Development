@@ -10,11 +10,23 @@
 //standard library headers
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 //project headers
 #include "invmenu.h"
 
 using namespace std;
+
+//global arrays for book information, may need to move these to a different file later
+//data for a book is linked through subscripts
+string bookTitle[20];
+string isbn[20];
+string author[20];
+string publisher[20];
+string dateAdded[20];
+int qtyOnHand[20];
+double wholesale[20];
+double retail[20];
 
 //stub function implementations
 void lookUpBook() {

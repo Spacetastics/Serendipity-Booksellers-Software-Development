@@ -10,6 +10,7 @@
 //standard library headers
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 //project headers
 #include "bookinfo.h"
@@ -17,14 +18,21 @@
 using namespace std;
 
 //main function implementation
-int bookInfo() {
+int bookInfo(string isbn, string title, string author, string publisher, string date, int qty, double wholesale, double retail) {
 
     //print menu header
     cout << right << setw(26) << "Serendipity Booksellers" << endl;
     cout << right << setw(22.5) << "Book Information" << endl << endl;
 
-    //prints each type of book data on its own line, no data input yet
-    cout << "ISBN: " << endl << "Title: " << endl << "Author: " << endl << "Publisher: " << endl << "Date Added: " << endl << "Quantity-On-Hand: " << endl << "Wholesale Cost: " << endl << "Retail Price: " << endl;
+    //prints each type of book data on its own line
+    cout << "ISBN: " << isbn << endl
+    << "Title: " << title << endl
+    << "Author: " << author << endl
+    << "Publisher: " << publisher << endl
+    << "Date Added: " << date << endl
+    << "Quantity-On-Hand: " << qty << endl
+    << "Wholesale Cost: " << wholesale << endl
+    << "Retail Price: " << retail << endl;
 
     return 0;
 }
