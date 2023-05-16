@@ -25,14 +25,14 @@ int bookInfo(string isbn, string title, string author, string publisher, string 
     cout << right << setw(22.5) << "Book Information" << endl << endl;
 
     //prints each type of book data on its own line
-    cout << "ISBN: " << isbn << endl
-    << "Title: " << title << endl
-    << "Author: " << author << endl
-    << "Publisher: " << publisher << endl
-    << "Date Added: " << date << endl
-    << "Quantity-On-Hand: " << qty << endl
-    << "Wholesale Cost: " << wholesale << endl
-    << "Retail Price: " << retail << endl;
+    cout << "1. ISBN: " << isbn << endl
+    << "2. Title: " << title << endl
+    << "3. Author: " << author << endl
+    << "4. Publisher: " << publisher << endl
+    << "5. Date Added: " << date << endl
+    << "6. Quantity-On-Hand: " << qty << endl
+    << "7. Wholesale Cost: " << wholesale << endl
+    << "8. Retail Price: " << retail << endl;
 
     return 0;
 }

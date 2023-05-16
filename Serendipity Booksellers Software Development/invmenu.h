@@ -10,7 +10,7 @@
 #ifndef invmenu_h
 #define invmenu_h
 
-//stub functions
+//inventory functions
 void lookUpBook();
 void addBook();
 void editBook();
