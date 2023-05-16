@@ -7,21 +7,24 @@
     Class: CMSC 226 (30145)
  */
 
+//standard library headers
 #include <iostream>
 #include <iomanip>
 
+//project headers
+#include "bookinfo.h"
+
 using namespace std;
 
-//main method must be commented out at the moment because I am using separate files for everything
+//main function implementation
+int bookInfo() {
 
-//int main() {
-//
-//    //print menu header
-//    cout << right << setw(26) << "Serendipity Booksellers" << endl;
-//    cout << right << setw(22.5) << "Book Information" << endl << endl;
-//
-//    //prints each type of book data on its own line, no data input yet
-//    cout << "ISBN: " << endl << "Title: " << endl << "Author: " << endl << "Publisher: " << endl << "Date Added: " << endl << "Quantity-On-Hand: " << endl << "Wholesale Cost: " << endl << "Retail Price: " << endl;
-//
-//    return 0;
-//}
+    //print menu header
+    cout << right << setw(26) << "Serendipity Booksellers" << endl;
+    cout << right << setw(22.5) << "Book Information" << endl << endl;
+
+    //prints each type of book data on its own line, no data input yet
+    cout << "ISBN: " << endl << "Title: " << endl << "Author: " << endl << "Publisher: " << endl << "Date Added: " << endl << "Quantity-On-Hand: " << endl << "Wholesale Cost: " << endl << "Retail Price: " << endl;
+
+    return 0;
+}

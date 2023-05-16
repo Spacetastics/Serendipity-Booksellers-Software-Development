@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F6BCE8829FD948700FDFC68 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BCE8729FD948700FDFC68 /* main.cpp */; };
 		4F6BCE9529FD9DE400FDFC68 /* mainmenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BCE9329FD9DE400FDFC68 /* mainmenu.cpp */; };
 		4F6BCE9729FDA87F00FDFC68 /* cashier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BCE9629FDA87F00FDFC68 /* cashier.cpp */; };
 		4F6BCE9929FDAC4300FDFC68 /* invmenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BCE9829FDAC4300FDFC68 /* invmenu.cpp */; };
@@ -29,7 +28,6 @@
 
 /* Begin PBXFileReference section */
 		4F6BCE8429FD948700FDFC68 /* Serendipity Booksellers Software Development */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Serendipity Booksellers Software Development"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F6BCE8729FD948700FDFC68 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4F6BCE8F29FD9B5200FDFC68 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F6BCE9229FD9C8900FDFC68 /* InventoryDatabase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InventoryDatabase.txt; sourceTree = "<group>"; };
 		4F6BCE9329FD9DE400FDFC68 /* mainmenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mainmenu.cpp; sourceTree = "<group>"; };
@@ -37,6 +35,10 @@
 		4F6BCE9829FDAC4300FDFC68 /* invmenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = invmenu.cpp; sourceTree = "<group>"; };
 		4F6BCE9A29FDAE0700FDFC68 /* bookinfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bookinfo.cpp; sourceTree = "<group>"; };
 		4F6BCE9C29FDAF5C00FDFC68 /* reports.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = reports.cpp; sourceTree = "<group>"; };
+		4F7A6B312A133AA90059CEED /* cashier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cashier.h; sourceTree = "<group>"; };
+		4F7A6B322A133AC30059CEED /* invmenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = invmenu.h; sourceTree = "<group>"; };
+		4F7A6B332A133AD00059CEED /* bookinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bookinfo.h; sourceTree = "<group>"; };
+		4F7A6B342A133AE70059CEED /* reports.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = reports.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +73,15 @@
 		4F6BCE8629FD948700FDFC68 /* Serendipity Booksellers Software Development */ = {
 			isa = PBXGroup;
 			children = (
-				4F6BCE8729FD948700FDFC68 /* main.cpp */,
 				4F6BCE9329FD9DE400FDFC68 /* mainmenu.cpp */,
 				4F6BCE9629FDA87F00FDFC68 /* cashier.cpp */,
 				4F6BCE9829FDAC4300FDFC68 /* invmenu.cpp */,
 				4F6BCE9A29FDAE0700FDFC68 /* bookinfo.cpp */,
 				4F6BCE9C29FDAF5C00FDFC68 /* reports.cpp */,
+				4F7A6B312A133AA90059CEED /* cashier.h */,
+				4F7A6B322A133AC30059CEED /* invmenu.h */,
+				4F7A6B332A133AD00059CEED /* bookinfo.h */,
+				4F7A6B342A133AE70059CEED /* reports.h */,
 			);
 			path = "Serendipity Booksellers Software Development";
 			sourceTree = "<group>";
@@ -141,7 +146,6 @@
 				4F6BCE9B29FDAE0700FDFC68 /* bookinfo.cpp in Sources */,
 				4F6BCE9D29FDAF5C00FDFC68 /* reports.cpp in Sources */,
 				4F6BCE9729FDA87F00FDFC68 /* cashier.cpp in Sources */,
-				4F6BCE8829FD948700FDFC68 /* main.cpp in Sources */,
 				4F6BCE9929FDAC4300FDFC68 /* invmenu.cpp in Sources */,
 				4F6BCE9529FD9DE400FDFC68 /* mainmenu.cpp in Sources */,
 			);
