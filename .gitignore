@@ -85,5 +85,8 @@ xcuserdata/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+# test
+test2.txt
+
 # End of https://www.toptal.com/developers/gitignore/api/xcode,macos,c++
 
