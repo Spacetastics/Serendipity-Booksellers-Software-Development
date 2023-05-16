@@ -1,2 +1,0 @@
-
-this will be committed, but the changes in xcodeproj folder should not be
