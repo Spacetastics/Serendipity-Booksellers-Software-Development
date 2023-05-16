@@ -31,18 +31,6 @@ int qtyOnHand[ARR_SIZE];
 double wholesale[ARR_SIZE];
 double retail[ARR_SIZE];
 
-//TEST ARRAYS, comment above and below in and out accordingly
-//const int ARR_SIZE = 1;
-//string bookTitle[ARR_SIZE] = {"History of Scotland"}; //for lookUpBook, editBook, deleteBook
-////string bookTitle[ARR_SIZE]; //for addBook
-//string isbn[ARR_SIZE] = {"0-333-90123-8"};
-//string author[ARR_SIZE] = {"S. Historian"};
-//string publisher[ARR_SIZE] = {"History Books"};
-//string dateAdded[ARR_SIZE] = {"05-24-12"};
-//int qtyOnHand[ARR_SIZE] = {2};
-//double wholesale[ARR_SIZE] = {9.99};
-//double retail[ARR_SIZE] = {19.95};
-
 //inventory function implementations:
 
 //attempts to find a book that the user inputs, provides book information if it is found
