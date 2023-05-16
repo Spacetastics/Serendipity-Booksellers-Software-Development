@@ -78,11 +78,14 @@ xcuserdata/
 
 ### Xcode Patch ###
 *.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcodeproj/project.xcworkspace/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-**/xcshareddata/WorkspaceSettings.xcsettings
+# !*.xcodeproj/project.pbxproj
+# !*.xcodeproj/xcshareddata/
+# !*.xcodeproj/project.xcworkspace/
+# !*.xcworkspace/contents.xcworkspacedata
+# /*.gcno
+# **/xcshareddata/WorkspaceSettings.xcsettings
+
+#test
+test.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,macos,c++
