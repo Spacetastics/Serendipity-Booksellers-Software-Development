@@ -27,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F3F70DA2A141405002D8973 /* gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
 		4F6BCE8429FD948700FDFC68 /* Serendipity Booksellers Software Development */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Serendipity Booksellers Software Development"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6BCE8F29FD9B5200FDFC68 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F6BCE9229FD9C8900FDFC68 /* InventoryDatabase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InventoryDatabase.txt; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		4F6BCE7B29FD948700FDFC68 = {
 			isa = PBXGroup;
 			children = (
+				4F3F70DA2A141405002D8973 /* gitignore */,
 				4F6BCE9229FD9C8900FDFC68 /* InventoryDatabase.txt */,
 				4F6BCE8F29FD9B5200FDFC68 /* README.md */,
 				4F6BCE8629FD948700FDFC68 /* Serendipity Booksellers Software Development */,
