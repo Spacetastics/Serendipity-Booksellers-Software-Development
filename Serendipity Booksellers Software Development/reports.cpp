@@ -77,7 +77,7 @@ void repListing() {
             << "Wholesale Cost: $" << wholesale[i] << endl
             << "Retail Price: $" << retail[i] << endl;
             
-            cout << "---------------------------------" << endl; //separator for books
+            cout << "------------------------------------" << endl; //separator for books
         }
     }
     
@@ -112,7 +112,7 @@ void repWholesale() {
             << "Quantity-On-Hand: " << qtyOnHand[i] << endl
             << "Wholesale Cost: $" << wholesale[i] << endl;
             
-            cout << "---------------------------------" << endl; //separator for books
+            cout << "------------------------------------" << endl; //separator for books
             
             //adds total wholesale cost of current book to wholesaleTotal
             wholesaleTotal += (wholesale[i] * qtyOnHand[i]);
@@ -150,7 +150,7 @@ void repRetail() {
             << "Quantity-On-Hand: " << qtyOnHand[i] << endl
             << "Retail Price: $" << retail[i] << endl;
             
-            cout << "---------------------------------" << endl; //separator for books
+            cout << "------------------------------------" << endl; //separator for books
             
             //adds total retail value of current book to retailTotal
             retailTotal += (retail[i] * qtyOnHand[i]);
@@ -216,7 +216,7 @@ void repQty() {
         << "ISBN: " << isbn[index] << endl
         << "Quantity-On-Hand: " << qtyOnHand[index] << endl;
         
-        cout << "---------------------------------" << endl; //separator for books
+        cout << "------------------------------------" << endl; //separator for books
     }
     
     cout << endl << "Press Enter to continue...";
@@ -274,7 +274,7 @@ void repCost() {
         << "Quantity-On-Hand: " << qtyOnHand[index] << endl
         << "Wholesale Cost: $" << wholesale[index] << endl;
         
-        cout << "---------------------------------" << endl;
+        cout << "------------------------------------" << endl;
         
     }
     
@@ -333,7 +333,7 @@ void repAge() {
         << "Quantity-On-Hand: " << qtyOnHand[index] << endl
         << "Date Added to Inventory: " << dateAdded[index] << endl;
         
-        cout << "---------------------------------" << endl; //separator for books
+        cout << "------------------------------------" << endl; //separator for books
         
     }
     
