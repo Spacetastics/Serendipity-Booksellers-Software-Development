@@ -55,16 +55,16 @@ void repListing() {
     
     //prints all book information, books are in the order that they are found in bookTitle
     for (int i = 0; i < ARR_SIZE; i++) {
-        if (strcmp(bookTitle[i], "") != 0) {
+        if (!isEmpty(i)) {
             //prints each type of book data on its own line
-            cout << "Title: " << bookTitle[i] << endl
-            << "ISBN: " << isbn[i] << endl
-            << "Author: " << author[i] << endl
-            << "Publisher: " << publisher[i] << endl
-            << "Date Added to Inventory: " << dateAdded[i] << endl
-            << "Quantity-On-Hand: " << qtyOnHand[i] << endl
-            << "Wholesale Cost: $" << wholesale[i] << endl
-            << "Retail Price: $" << retail[i] << endl;
+            cout << "Title: " << inventory[i].bookTitle << endl
+            << "ISBN: " << inventory[i].isbn << endl
+            << "Author: " << inventory[i].author << endl
+            << "Publisher: " << inventory[i].publisher << endl
+            << "Date Added to Inventory: " << inventory[i].dateAdded << endl
+            << "Quantity-On-Hand: " << inventory[i].qtyOnHand << endl
+            << "Wholesale Cost: $" << inventory[i].wholesale << endl
+            << "Retail Price: $" << inventory[i].retail << endl;
             
             cout << "------------------------------------" << endl; //separator for books
         }
@@ -94,17 +94,17 @@ void repWholesale() {
     
     //prints essential book information + wholesale cost, books are in the order they are found in bookTitle
     for (int i = 0; i < ARR_SIZE; i++) {
-        if (strcmp(bookTitle[i], "") != 0) {
+        if (!isEmpty(i)) {
             //prints each type of book data on its own line
-            cout << "Title: " << bookTitle[i] << endl
-            << "ISBN: " << isbn[i] << endl
-            << "Quantity-On-Hand: " << qtyOnHand[i] << endl
-            << "Wholesale Cost: $" << wholesale[i] << endl;
+            cout << "Title: " << inventory[i].bookTitle << endl
+            << "ISBN: " << inventory[i].isbn << endl
+            << "Quantity-On-Hand: " << inventory[i].qtyOnHand << endl
+            << "Wholesale Cost: $" << inventory[i].wholesale << endl;
             
             cout << "------------------------------------" << endl; //separator for books
             
             //adds total wholesale cost of current book to wholesaleTotal
-            wholesaleTotal += (wholesale[i] * qtyOnHand[i]);
+            wholesaleTotal += (inventory[i].wholesale * inventory[i].qtyOnHand);
         }
     }
     
@@ -132,17 +132,17 @@ void repRetail() {
     
     //prints essential book information + retail cost, books are in the order they are found in bookTitle
     for (int i = 0; i < ARR_SIZE; i++) {
-        if (strcmp(bookTitle[i], "") != 0) {
+        if (!isEmpty(i)) {
             //prints each type of book data on its own line
-            cout << "Title: " << bookTitle[i] << endl
-            << "ISBN: " << isbn[i] << endl
-            << "Quantity-On-Hand: " << qtyOnHand[i] << endl
-            << "Retail Price: $" << retail[i] << endl;
+            cout << "Title: " << inventory[i].bookTitle << endl
+            << "ISBN: " << inventory[i].isbn << endl
+            << "Quantity-On-Hand: " << inventory[i].qtyOnHand << endl
+            << "Retail Price: $" << inventory[i].retail << endl;
             
             cout << "------------------------------------" << endl; //separator for books
             
             //adds total retail value of current book to retailTotal
-            retailTotal += (retail[i] * qtyOnHand[i]);
+            retailTotal += (inventory[i].retail * inventory[i].qtyOnHand);
         }
     }
     
@@ -167,14 +167,17 @@ void repQty() {
     cout << "Quantity report for " << put_time(localTime, "%m/%d/%Y") << ": " << endl << endl;
     
     //array of pointers to int values
-    int* qtyPtr[ARR_SIZE];
+//    int* qtyPtr[ARR_SIZE];
+    BookData* qtyPtr[ARR_SIZE];
     
     int ptrIndex = 0; //index counter for qtyPtr
     //initializes qtyPtr pointer array to memory addresses of values in qtyOnHand
     for (int i = 0; i < ARR_SIZE; i++) {
         //if there is a book at this index
-        if (strcmp(bookTitle[i], "") != 0) {
-            qtyPtr[ptrIndex] = &qtyOnHand[i];
+        if (!isEmpty(i)) {
+//            qtyPtr[ptrIndex] = .qtyOnHand;
+            qtyPtr[ptrIndex] = &inventory[i];
+            
             ptrIndex++;
         }
     }
@@ -185,7 +188,7 @@ void repQty() {
         
         for (int j = i + 1; j < ptrIndex; j++) {
             
-            if (*qtyPtr[j] > *qtyPtr[maxIndex])
+            if (qtyPtr[j]->qtyOnHand > qtyPtr[maxIndex]->qtyOnHand)
                 maxIndex = j;
             
         }
@@ -198,12 +201,12 @@ void repQty() {
         //gets index of the value in qtyOnHand that qtyPtr points to at i
         //this gives me a warning for some reason so I added the pragma line to ignore it
         #pragma clang diagnostic ignored "-Wconversion"
-        int index = qtyPtr[i] - qtyOnHand;
+        int index = qtyPtr[i] - inventory;
         
         //prints each type of book data on its own line
-        cout << "Title: " << bookTitle[index] << endl
-        << "ISBN: " << isbn[index] << endl
-        << "Quantity-On-Hand: " << qtyOnHand[index] << endl;
+        cout << "Title: " << inventory[index].bookTitle << endl
+        << "ISBN: " << inventory[index].isbn << endl
+        << "Quantity-On-Hand: " << inventory[index].qtyOnHand << endl;
         
         cout << "------------------------------------" << endl; //separator for books
     }
@@ -226,14 +229,15 @@ void repCost() {
     cout << "Wholesale Cost report for " << put_time(localTime, "%m/%d/%Y") << ": " << endl << endl;
     
     //array of pointers to double values
-    double* wholesalePtr[ARR_SIZE];
+//    double* wholesalePtr[ARR_SIZE];
+    BookData* wholesalePtr[ARR_SIZE];
     
     int ptrIndex = 0; //index counter for wholesalePtr
     //initializes wholesalePtr pointer array to memory addresses of values in wholesale
     for (int i = 0; i < ARR_SIZE; i++) {
         //if there is a book at this index
-        if (strcmp(bookTitle[i], "") != 0) {
-            wholesalePtr[ptrIndex] = &wholesale[i];
+        if (!isEmpty(i)) {
+            wholesalePtr[ptrIndex] = &inventory[i];
             ptrIndex++;
         }
     }
@@ -243,8 +247,8 @@ void repCost() {
         int maxIndex = i;
         
         for (int j = i + 1; j < ptrIndex; j++) {
-            
-            if (*wholesalePtr[j] > *wholesalePtr[maxIndex])
+
+            if (wholesalePtr[j]->wholesale > wholesalePtr[maxIndex]->wholesale)
                 maxIndex = j;
             
         }
@@ -255,13 +259,13 @@ void repCost() {
     
     for (int i = 0; i < ptrIndex; i++) {
         //gets index of the value in wholesale that wholesalePtr points to at i
-        int index = wholesalePtr[i] - wholesale;
+        int index = wholesalePtr[i] - inventory;
         
         //prints each type of book data on its own line
-        cout << "Title: " << bookTitle[index] << endl
-        << "ISBN: " << isbn[index] << endl
-        << "Quantity-On-Hand: " << qtyOnHand[index] << endl
-        << "Wholesale Cost: $" << wholesale[index] << endl;
+        cout << "Title: " << inventory[index].bookTitle << endl
+        << "ISBN: " << inventory[index].isbn << endl
+        << "Quantity-On-Hand: " << inventory[index].qtyOnHand << endl
+        << "Wholesale Cost: $" << inventory[index].wholesale << endl;
         
         cout << "------------------------------------" << endl;
         
@@ -284,14 +288,15 @@ void repAge() {
     cout << "Book Age report for " << put_time(localTime, "%m/%d/%Y") << ": " << endl << endl;
     
     //array of pointers to char values (for c strings)
-    char* datePtr[ARR_SIZE];
+//    char* datePtr[ARR_SIZE];
+    BookData* datePtr[ARR_SIZE];
     
     int ptrIndex = 0; //index counter for datePtr
     //initializes datePtr pointer array to memory addresses of values in dateAdded
     for (int i = 0; i < ARR_SIZE; i++) {
         //if there is a book at this index
-        if (strcmp(bookTitle[i], "") != 0) {
-            datePtr[ptrIndex] = dateAdded[i];
+        if (!isEmpty(i)) {
+            datePtr[ptrIndex] = &inventory[i];
             ptrIndex++;
         }
     }
@@ -302,7 +307,7 @@ void repAge() {
         
         for (int j = i + 1; j < ptrIndex; j++) {
             
-            if (isOlder(datePtr[j], datePtr[minIndex])) //call to helper function to determine which date is older
+            if (isOlder(datePtr[j]->dateAdded, datePtr[minIndex]->dateAdded)) //call to helper function to determine which date is older
                 minIndex = j;
             
         }
@@ -317,17 +322,17 @@ void repAge() {
         //previous index implementation no longer works after switching to c strings, so I must Loop
         int index = 0;
         for (int j = 0; j < ARR_SIZE; j++) {
-            if (datePtr[i] == dateAdded[j]) {
+            if (datePtr[i] == &inventory[j]) {
                 index = j;
                 break;
             }
         }
         
         //prints each type of book data on its own line
-        cout << "Title: " << bookTitle[index] << endl
-        << "ISBN: " << isbn[index] << endl
-        << "Quantity-On-Hand: " << qtyOnHand[index] << endl
-        << "Date Added to Inventory: " << dateAdded[index] << endl;
+        cout << "Title: " << inventory[index].bookTitle << endl
+        << "ISBN: " << inventory[index].isbn << endl
+        << "Quantity-On-Hand: " << inventory[index].qtyOnHand << endl
+        << "Date Added to Inventory: " << inventory[index].dateAdded << endl;
         
         cout << "------------------------------------" << endl; //separator for books
         

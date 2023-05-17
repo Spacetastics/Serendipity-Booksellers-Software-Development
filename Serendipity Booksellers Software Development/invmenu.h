@@ -10,10 +10,6 @@
 #ifndef invmenu_h
 #define invmenu_h
 
-//helper functions
-//I assume by string part 10 meant c string
-void strUpper(char* str); //may move to globals if necessary
-
 //inventory functions
 void lookUpBook();
 void addBook();

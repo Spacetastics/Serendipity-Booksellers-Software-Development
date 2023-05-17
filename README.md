@@ -18,3 +18,6 @@ The main function of the files should be converted to void
 add include sting to relevant files
 readme needs to be formatted
 change all possible input validation to Y/N format with char variable checker
+implement enum where appropriate
+vectors in cashier may not be necessary anymore because of new struct
+comments in files need to be updated

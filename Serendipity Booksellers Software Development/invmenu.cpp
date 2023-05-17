@@ -21,37 +21,14 @@
 
 using namespace std;
 
-const int ARR_SIZE = 20;
-
-//global arrays for book information
-//data for a book is linked through subscripts
-char bookTitle[ARR_SIZE][51];
-char isbn[ARR_SIZE][14];
-char author[ARR_SIZE][31];
-char publisher[ARR_SIZE][31];
-char dateAdded[ARR_SIZE][11];
-int qtyOnHand[ARR_SIZE];
-double wholesale[ARR_SIZE];
-double retail[ARR_SIZE];
-
-//helper function implementation
-//capitalizes inputted string
-void strUpper(char* str) {
-    
-    for (int i = 0; str[i] != '\0'; ++i) {
-        str[i] = toupper(str[i]);
-    }
-    
-}
-
 //inventory function implementations:
 
 //attempts to find a book that the user inputs, provides book information if it is found
 void lookUpBook() {
     //ask user for book title
     cout << "Enter the title or part of a title of a book: ";
-    char title[51];
-    cin.getline(title, 51);
+    char title[MAX_TITLE];
+    cin.getline(title, MAX_TITLE);
     strUpper(title); //converts title input to uppercase so that it can properly search the inventory
     cout << endl; //formatting
     
@@ -60,8 +37,8 @@ void lookUpBook() {
     for (int i = 0; i < ARR_SIZE; i++) {
         //strstr returns a pointer to the first occurence of the substring in the string, or NULL if not found.
         //If it is not NULL, a match was found.
-        if (strstr(bookTitle[i], title) != NULL) {
-            cout << "Is \'" << bookTitle[i] << "\' the book you are looking for? (Y/N): ";
+        if (strstr(inventory[i].bookTitle, title) != NULL) {
+            cout << "Is \'" << inventory[i].bookTitle << "\' the book you are looking for? (Y/N): ";
             cin >> confirmation;
             //Ignore any remaining characters in the buffer for the next input
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -78,7 +55,7 @@ void lookUpBook() {
             //if book title is found in inventory, rest of book's info is displayed with bookInfo()
             if (toupper(confirmation) == 'Y') {
                 cout << endl;
-                bookInfo(isbn[i], bookTitle[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
+                bookInfo(inventory[i].isbn, inventory[i].bookTitle, inventory[i].author, inventory[i].publisher, inventory[i].dateAdded, inventory[i].qtyOnHand, inventory[i].wholesale, inventory[i].retail);
                 return;
             }
             
@@ -93,35 +70,52 @@ void lookUpBook() {
 void addBook() {
     //loop iterates across the bookTitle array looking for an empty slot to put a new book in
     for (int i = 0; i < ARR_SIZE; i++) {
-        //the null terminator is equivalent to "", so I don't need to check for both individually
-        if (strcmp(bookTitle[i], "") == 0) {
+        
+        if (isEmpty(i)) {
             //getting new book data from user
             cout << "Enter the following.." << endl;
             
             //part 10 tells me to call strUpper to convert to uppercase *before* they are added to arrays, but I'm going to do it after because the code is simpler that way and it's the same effect
             cout << "Book title: ";
-            cin.getline(bookTitle[i], 51);
-            strUpper(bookTitle[i]); //converts title to uppercase for proper formatting
+            char titleInput[MAX_TITLE];
+            cin.getline(titleInput, MAX_TITLE);
+            strUpper(titleInput); //converts title to uppercase for proper formatting
+            setTitle(titleInput, i);
             cout << "ISBN number: ";
-            cin >> isbn[i]; //isbn will always be one piece, so cin is appropriate
+            char isbnInput[MAX_ISBN];
+            cin >> isbnInput; //isbn will always be one piece, so cin is appropriate
             cin.ignore(); //ignore newline in input buffer
-            strUpper(isbn[i]);
+            strUpper(isbnInput); //converts title to uppercase for proper formatting
+            setISBN(isbnInput, i);
             cout << "Author's name: ";
-            cin.getline(author[i], 31);
-            strUpper(author[i]);
+            char authorInput[MAX_AUTHOR];
+            cin.getline(authorInput, MAX_AUTHOR);
+            strUpper(authorInput);
+            setAuthor(authorInput, i);
             cout << "Publisher's name: ";
-            cin.getline(publisher[i], 31);
-            strUpper(publisher[i]);
+            char publisherInput[MAX_PUBLISHER];
+            cin.getline(publisherInput, MAX_PUBLISHER);
+            strUpper(publisherInput);
+            setPub(publisherInput, i);
             cout << "The date the book was added to the inventory: ";
-            cin >> dateAdded[i]; //date will always be one piece, so cin is appropriate
+            char dateInput[MAX_DATE];
+            cin >> dateInput; //date will always be one piece, so cin is appropriate
+            strUpper(dateInput);
+            setDateAdded(dateInput, i);
             cout << "The quantity of the book being added: ";
-            cin >> qtyOnHand[i];
+            int qtyInput;
+            cin >> qtyInput;
+            setQty(qtyInput, i);
             cout << "The wholesale cost of the book: ";
-            cin >> wholesale[i];
+            double costInput;
+            cin >> costInput;
+            setWholesale(costInput, i);
             cout << "The retail price of the book: ";
-            cin >> retail[i];
+            double priceInput;
+            cin >> priceInput;
+            setRetail(priceInput, i);
             
-            cout << endl << "Book \'" << bookTitle[i] << "\' added to inventory." << endl;
+            cout << endl << "Book \'" << inventory[i].bookTitle << "\' added to inventory." << endl;
             return;
         }
     }
@@ -134,8 +128,8 @@ void addBook() {
 void editBook() {
     //ask user for book title
     cout << "Enter the title or part of a title of a book: ";
-    char title[51];
-    cin.getline(title, 51);
+    char title[MAX_TITLE];
+    cin.getline(title, MAX_TITLE);
     strUpper(title); //converts title input to uppercase so that it can properly search the inventory
     cout << endl; //formatting
     
@@ -145,8 +139,8 @@ void editBook() {
         
         //strstr returns a pointer to the first occurence of the substring in the string, or NULL if not found.
         //If it is not NULL, a match was found.
-        if (strstr(bookTitle[i], title) != NULL) {
-            cout << "Is \'" << bookTitle[i] << "\' the book you are looking for? (Y/N): ";
+        if (strstr(inventory[i].bookTitle, title) != NULL) {
+            cout << "Is \'" << inventory[i].bookTitle << "\' the book you are looking for? (Y/N): ";
             cin >> confirmation;
             //Ignore any remaining characters in the buffer for the next input
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -163,7 +157,7 @@ void editBook() {
             //if book title is found in inventory, rest of book's info is displayed with bookInfo(), user is allowed to edit book's info
             if (toupper(confirmation) == 'Y') {
                 cout << endl;
-                bookInfo(isbn[i], bookTitle[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
+                bookInfo(inventory[i].isbn, inventory[i].bookTitle, inventory[i].author, inventory[i].publisher, inventory[i].dateAdded, inventory[i].qtyOnHand, inventory[i].wholesale, inventory[i].retail);
                 
                 int choice;
                 do {
@@ -183,42 +177,60 @@ void editBook() {
                             break;
                         case 1:
                             cout << "Enter new ISBN: ";
-                            cin >> isbn[i];
-                            strUpper(isbn[i]);
+                            char isbnInput[MAX_ISBN];
+                            cin >> isbnInput; //isbn will always be one piece, so cin is appropriate
+                            cin.ignore(); //ignore newline in input buffer
+                            strUpper(isbnInput); //converts title to uppercase for proper formatting
+                            setISBN(isbnInput, i);
                             break;
                         case 2:
                             cout << "Enter new title: ";
                             cin.ignore();
-                            cin.getline(bookTitle[i], 51);
-                            strUpper(bookTitle[i]);
+                            char titleInput[MAX_TITLE];
+                            cin.getline(titleInput, MAX_TITLE);
+                            strUpper(titleInput); //converts title to uppercase for proper formatting
+                            setTitle(titleInput, i);
                             break;
                         case 3:
                             cout << "Enter new author: ";
                             cin.ignore();
-                            cin.getline(author[i], 31);
-                            strUpper(author[i]);
+                            char authorInput[MAX_AUTHOR];
+                            cin.getline(authorInput, MAX_AUTHOR);
+                            strUpper(authorInput);
+                            setAuthor(authorInput, i);
                             break;
                         case 4:
                             cout << "Enter new publisher: ";
                             cin.ignore();
-                            cin.getline(publisher[i], 31);
-                            strUpper(publisher[i]);
+                            char publisherInput[MAX_PUBLISHER];
+                            cin.getline(publisherInput, MAX_PUBLISHER);
+                            strUpper(publisherInput);
+                            setPub(publisherInput, i);
                             break;
                         case 5:
                             cout << "Enter new date added: ";
-                            cin >> dateAdded[i];
+                            char dateInput[MAX_DATE];
+                            cin >> dateInput; //date will always be one piece, so cin is appropriate
+                            strUpper(dateInput);
+                            setDateAdded(dateInput, i);
                             break;
                         case 6:
                             cout << "Enter new quantity-on-hand: ";
-                            cin >> qtyOnHand[i];
+                            int qtyInput;
+                            cin >> qtyInput;
+                            setQty(qtyInput, i);
                             break;
                         case 7:
                             cout << "Enter new wholesale cost: ";
-                            cin >> wholesale[i];
+                            double costInput;
+                            cin >> costInput;
+                            setWholesale(costInput, i);
                             break;
                         case 8:
                             cout << "Enter new retail price: ";
-                            cin >> retail[i];
+                            double priceInput;
+                            cin >> priceInput;
+                            setRetail(priceInput, i);
                             break;
                         //this should never be reached
                         default:
@@ -248,8 +260,8 @@ void deleteBook() {
     
     //ask user for book title
     cout << "Enter the title or part of a title of a book: ";
-    char title[51];
-    cin.getline(title, 51);
+    char title[MAX_TITLE];
+    cin.getline(title, MAX_TITLE);
     strUpper(title); //converts title input to uppercase so that it can properly search the inventory
     cout << endl; //formatting
     
@@ -259,8 +271,8 @@ void deleteBook() {
         
         //strstr returns a pointer to the first occurence of the substring in the string, or NULL if not found.
         //If it is not NULL, a match was found.
-        if (strstr(bookTitle[i], title) != NULL) {
-            cout << "Is \'" << bookTitle[i] << "\' the book you are looking for? (Y/N): ";
+        if (strstr(inventory[i].bookTitle, title) != NULL) {
+            cout << "Is \'" << inventory[i].bookTitle << "\' the book you are looking for? (Y/N): ";
             cin >> confirmation;
             //Ignore any remaining characters in the buffer for the next input
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -277,7 +289,7 @@ void deleteBook() {
             //if book title is found in inventory, rest of book's info is displayed with bookInfo()
             if (toupper(confirmation) == 'Y') {
                 cout << endl;
-                bookInfo(isbn[i], bookTitle[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
+                bookInfo(inventory[i].isbn, inventory[i].bookTitle, inventory[i].author, inventory[i].publisher, inventory[i].dateAdded, inventory[i].qtyOnHand, inventory[i].wholesale, inventory[i].retail);
                 
                 int choice;
                 cout << endl << "Are you sure you want to delete this book? Enter 1 for Yes or 0 for No: ";
@@ -289,11 +301,10 @@ void deleteBook() {
                 
                 //deletion is done by clearing its bookTitle slot, since this is how books and free space are found
                 if (choice == 1) {
-                    cout << endl << "Deleted \'" << bookTitle[i] << "\'. " << endl; 
+                    cout << endl << "Deleted \'" << inventory[i].bookTitle << "\'. " << endl;
                     
-                    //setting the first character in the string to null character makes it an empty string
-                    bookTitle[i][0] = '\0';
-                    isbn[i][0] = '\0';
+                    //deletes here
+                    removeBook(i);
                 }
                 
                 return;

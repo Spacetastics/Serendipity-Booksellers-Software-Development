@@ -59,22 +59,23 @@ int cashier() {
             }
 
             //get book ISBN to find if requested book is in inventory
-            string isbnNum;
+            char isbnNum[MAX_ISBN];
 
             //attempts to find book of provided ISBN in inventory, stores index of book in booksPurchased if found
             bool found = false;
             do {
                 cout << endl << "ISBN: ";
                 cin >> isbnNum;
+                strUpper(isbnNum);
                 cout << endl;
                 
                 for (int i = 0; i < ARR_SIZE; i++) {
                     
-                    if (isbn[i] == isbnNum) {
+                    if (strcmp(inventory[i].isbn, isbnNum) == 0) {
                         //determines if there is enough stock to buy as many as user requested
                         //project description wants me to put thes *after* getting book data, but it also just wants me to return to the main menu after finding there isn't enough in stock, so I'm putting it first.
-                        if (qtyOnHand[i] < quantity) {
-                            cout << "There are not enough copies in stock to fulfill your order. There are " << qtyOnHand[i] << " copies in stock." << endl;
+                        if (inventory[i].qtyOnHand < quantity) {
+                            cout << "There are not enough copies in stock to fulfill your order. There are " << inventory[i].qtyOnHand << " copies in stock." << endl;
                             
                             //must go to next iteration of loop instead of returning to main menu because of multiple book entries
                             goto end_of_loop;
@@ -83,7 +84,7 @@ int cashier() {
                         else {
                             //must store bought quantity somewhere before subtracting, so it can be used for later calculations
                             bookQuantities.push_back(quantity);
-                            qtyOnHand[i] -= quantity;
+                            inventory[i].qtyOnHand -= quantity;
                         }
                         
                         //book data retrieved
@@ -154,9 +155,9 @@ int cashier() {
         
         double subtotal = 0.0;
         for (int i = 0; i < booksPurchased.size(); i++) {
-            double bookSubtotal = retail[booksPurchased.at(i)] * bookQuantities.at(i);
+            double bookSubtotal = inventory[booksPurchased.at(i)].retail * bookQuantities.at(i);
             
-            cout << left << setw(5) << bookQuantities.at(i) << setw(15) << isbn[booksPurchased.at(i)] << setw(36) << bookTitle[booksPurchased.at(i)] << "$ " << setw(7) << retail[booksPurchased.at(i)] << "$ " << setw(7) << bookSubtotal << endl;
+            cout << left << setw(5) << bookQuantities.at(i) << setw(15) << inventory[booksPurchased.at(i)].isbn << setw(36) << inventory[booksPurchased.at(i)].bookTitle << "$ " << setw(7) << inventory[booksPurchased.at(i)].retail << "$ " << setw(7) << bookSubtotal << endl;
             
             subtotal += bookSubtotal;
         }
