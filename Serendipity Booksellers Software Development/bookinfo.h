@@ -10,11 +10,7 @@
 #ifndef bookinfo_h
 #define bookinfo_h
 
-#include <string>
-
-using std::string;
-
 //main function
-int bookInfo(string isbn, string title, string author, string publisher, string date, int qty, double wholesale, double retail);
+int bookInfo(char isbn[14], char title[51], char author[31], char publisher[31], char date[11], int qty, double wholesale, double retail);
 
 #endif /* bookinfo_h */

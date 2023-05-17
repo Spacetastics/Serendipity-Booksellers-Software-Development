@@ -10,24 +10,21 @@
 #ifndef globals_h
 #define globals_h
 
-#include <string>
-
-using std::string;
-
 //these global variables are defined in invmenu.cpp and used in invmenu.cpp, cashier.cpp, and reports.cpp
 
 //extern keyword is used here to tell the compiler that these variables are defined in a different file, so that
 //every file that includes this header will all share the same references to these variables instead of using distinct copies
 
 //size of all the below arrays
+//maybe change name for c string implementation
 extern const int ARR_SIZE;
 
 //global arrays for book information
-extern string bookTitle[];
-extern string isbn[];
-extern string author[];
-extern string publisher[];
-extern string dateAdded[];
+extern char bookTitle[][51];
+extern char isbn[][14];
+extern char author[][31];
+extern char publisher[][31];
+extern char dateAdded[][11];
 extern int qtyOnHand[];
 extern double wholesale[];
 extern double retail[];

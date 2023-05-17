@@ -17,3 +17,4 @@ Notes in files should be implemented
 The main function of the files should be converted to void
 add include sting to relevant files
 readme needs to be formatted
+change all possible input validation to Y/N format with char variable checker

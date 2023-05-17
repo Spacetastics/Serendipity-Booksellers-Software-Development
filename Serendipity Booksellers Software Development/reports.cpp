@@ -8,10 +8,11 @@
  */
 
 //standard library headers
+#include <cstdlib> //for helper function
+#include <cstring> //for helper function
 #include <ctime> //for getting current date for some report functions
 #include <iostream>
 #include <iomanip>
-#include <sstream> //for helper function
 #include <string>
 
 //project headers
@@ -21,34 +22,22 @@
 using namespace std;
 
 //custom helper function implementation:
-//returns true if first date is older, false if second date is older
-bool isOlder(const string& date1, const string& date2) {
+//returns true if first date is older, false if second date is older; changed implementation to work with c strings
+bool isOlder(const char* date1, const char* date2) {
     //date format is MM-DD-YYYY
     
     int month1, day1, year1;
     int month2, day2, year2;
-    
-    stringstream ss1(date1);
-    stringstream ss2(date2);
-    
-    //reads until the first non-numeric character since we are dealing with ints.
-    ss1 >> month1;
-    //ignores "-"
-    ss1.ignore(1);
-    ss1 >> day1;
-    ss1.ignore(1);
-    ss1 >> year1;
-    
-    ss2 >> month2;
-    ss2.ignore(1);
-    ss2 >> day2;
-    ss2.ignore(1);
-    ss2 >> year2;
-    
-    if (year1 != year2)
+
+    sscanf(date1, "%d-%d-%d", &month1, &day1, &year1);
+    sscanf(date2, "%d-%d-%d", &month2, &day2, &year2);
+
+    if (year1 != year2) {
         return year1 < year2;
-    if (month1 != month2)
+    }
+    if (month1 != month2) {
         return month1 < month2;
+    }
     return day1 < day2;
 }
 
@@ -66,7 +55,7 @@ void repListing() {
     
     //prints all book information, books are in the order that they are found in bookTitle
     for (int i = 0; i < ARR_SIZE; i++) {
-        if (bookTitle[i] != "") {
+        if (strcmp(bookTitle[i], "") != 0) {
             //prints each type of book data on its own line
             cout << "Title: " << bookTitle[i] << endl
             << "ISBN: " << isbn[i] << endl
@@ -105,7 +94,7 @@ void repWholesale() {
     
     //prints essential book information + wholesale cost, books are in the order they are found in bookTitle
     for (int i = 0; i < ARR_SIZE; i++) {
-        if (bookTitle[i] != "") {
+        if (strcmp(bookTitle[i], "") != 0) {
             //prints each type of book data on its own line
             cout << "Title: " << bookTitle[i] << endl
             << "ISBN: " << isbn[i] << endl
@@ -143,7 +132,7 @@ void repRetail() {
     
     //prints essential book information + retail cost, books are in the order they are found in bookTitle
     for (int i = 0; i < ARR_SIZE; i++) {
-        if (bookTitle[i] != "") {
+        if (strcmp(bookTitle[i], "") != 0) {
             //prints each type of book data on its own line
             cout << "Title: " << bookTitle[i] << endl
             << "ISBN: " << isbn[i] << endl
@@ -184,7 +173,7 @@ void repQty() {
     //initializes qtyPtr pointer array to memory addresses of values in qtyOnHand
     for (int i = 0; i < ARR_SIZE; i++) {
         //if there is a book at this index
-        if (bookTitle[i] != "") {
+        if (strcmp(bookTitle[i], "") != 0) {
             qtyPtr[ptrIndex] = &qtyOnHand[i];
             ptrIndex++;
         }
@@ -243,7 +232,7 @@ void repCost() {
     //initializes wholesalePtr pointer array to memory addresses of values in wholesale
     for (int i = 0; i < ARR_SIZE; i++) {
         //if there is a book at this index
-        if (bookTitle[i] != "") {
+        if (strcmp(bookTitle[i], "") != 0) {
             wholesalePtr[ptrIndex] = &wholesale[i];
             ptrIndex++;
         }
@@ -294,15 +283,15 @@ void repAge() {
     //prints title of report and todays date
     cout << "Book Age report for " << put_time(localTime, "%m/%d/%Y") << ": " << endl << endl;
     
-    //array of pointers to string values
-    string* datePtr[ARR_SIZE];
+    //array of pointers to char values (for c strings)
+    char* datePtr[ARR_SIZE];
     
     int ptrIndex = 0; //index counter for datePtr
     //initializes datePtr pointer array to memory addresses of values in dateAdded
     for (int i = 0; i < ARR_SIZE; i++) {
         //if there is a book at this index
-        if (bookTitle[i] != "") {
-            datePtr[ptrIndex] = &dateAdded[i];
+        if (strcmp(bookTitle[i], "") != 0) {
+            datePtr[ptrIndex] = dateAdded[i];
             ptrIndex++;
         }
     }
@@ -313,7 +302,7 @@ void repAge() {
         
         for (int j = i + 1; j < ptrIndex; j++) {
             
-            if (isOlder(*datePtr[j], *datePtr[minIndex])) //call to helper function to determine which date is older
+            if (isOlder(datePtr[j], datePtr[minIndex])) //call to helper function to determine which date is older
                 minIndex = j;
             
         }
@@ -324,8 +313,15 @@ void repAge() {
     
     for (int i = 0; i < ptrIndex; i++) {
         //gets index of the value in dateAdded that datePtr points to at i
-        //this gives me a warning for some reason so I added the pragma line to ignore it
-        int index = datePtr[i] - dateAdded;
+//        int index = datePtr[i] - dateAdded;
+        //previous index implementation no longer works after switching to c strings, so I must Loop
+        int index = 0;
+        for (int j = 0; j < ARR_SIZE; j++) {
+            if (datePtr[i] == dateAdded[j]) {
+                index = j;
+                break;
+            }
+        }
         
         //prints each type of book data on its own line
         cout << "Title: " << bookTitle[index] << endl
