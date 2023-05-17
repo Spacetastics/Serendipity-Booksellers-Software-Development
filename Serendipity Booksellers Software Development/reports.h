@@ -10,7 +10,14 @@
 #ifndef reports_h
 #define reports_h
 
-//stub functions
+#include <string>
+
+using std::string;
+
+//helper function (not provided by projects)
+bool isOlder(const string& date1, const string& date2); //const references are more efficient than passing by value
+
+//report functions
 void repListing();
 void repWholesale();
 void repRetail();

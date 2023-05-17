@@ -14,6 +14,7 @@
 
 //project headers
 #include "bookinfo.h"
+#include "globals.h"
 #include "invmenu.h"
 
 using namespace std;
@@ -81,6 +82,7 @@ void addBook() {
             cout << "The retail price of the book: ";
             cin >> retail[i];
             
+            cout << endl << "Book \'" << bookTitle[i] << "\' added to inventory." << endl;
             return;
         }
     }
@@ -263,7 +265,7 @@ int invMenu() {
     
     //NOTES:
     
-    //date is MM-DD-YYYY
+    //date is MM-DD-YYYY, need to add input validation
     //add more feedback. ex, for editBook print text confirming the change, for deleteBook confirm the deletion, etc.
     //confirm the menu choice that the use picks with cout
     //update header comment

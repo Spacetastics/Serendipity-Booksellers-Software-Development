@@ -12,5 +12,7 @@ in the bookstore. In general, the software is to perform the following tasks:
 * Display various sales reports
 
 
-Inventory Database may need to be moved later
-Current cpp files also all have a main method, all of one of which are commented out so I can actually run the thing. Needs to be fixed later.
+Header comments need to be updated
+Notes in files should be implemented
+The main function of the files should be converted to void
+add include sting to relevant files
